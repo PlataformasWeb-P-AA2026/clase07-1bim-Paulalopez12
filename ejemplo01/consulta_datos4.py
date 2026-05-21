@@ -27,6 +27,7 @@ session = Session()
 
 clubs = session.query(Club).join(Jugador).\
         filter(Jugador.nombre.like("%Da%")).all()
+# clubs es una lista de objetos de la clase Club que cumplen con la condición de tener al menos un jugador con el nombre que tenga incluida la cadena “Da”
 # print(clubs)
 print("Consulta 1 ")
 """
@@ -47,7 +48,9 @@ Club: nombre=Barcelona deporte=Fútbol fundación=1920
 
 registros = session.query(Club, Jugador).join(Jugador).\
          filter(Jugador.nombre.like("%Da%")).all()
- 
+#registros es una lista de tuplas, donde cada tupla contiene un objeto de la clase Club y un objeto de la clase Jugador que cumplen con la condición de tener
+# al menos un jugador con el nombre que tenga incluida la cadena “Da”
+
 print("Consulta 2 ")
 # print(registros)
 """
@@ -71,14 +74,9 @@ for registro in registros:
     print(registro[1].nombre) # El jugador
     print("------------------")
 
-
-
-
-
-
-
-
-
+    #for registro in registros: con print(registro) se muestra la tupla completa, con el club y el jugador que cumplen con la condición de tener al menos 
+    # un jugador con el nombre que tenga incluida la cadena “Da”
+    print(registro)
 
 
 
